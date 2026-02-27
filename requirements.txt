@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+numpy==1.26.4
+pillow
+insightface==0.7.3
+onnxruntime
