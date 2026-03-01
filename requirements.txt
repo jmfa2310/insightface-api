@@ -1,7 +1,8 @@
 fastapi
-uvicorn[standard]
+uvicorn
 numpy
 pillow
 opencv-python-headless
 onnxruntime
 insightface==0.7.3
+gradio
