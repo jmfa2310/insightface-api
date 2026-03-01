@@ -9,5 +9,6 @@ pillow
 opencv-python-headless
 onnxruntime
 
-insightface==0.7.3 --no-deps
+insightface==0.7.3
+
 
