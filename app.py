@@ -19,7 +19,7 @@ def get_faceapp():
     if faceapp is None:
         from insightface.app import FaceAnalysis
 
-        # ✅ modelo menor para 512MB RAM
+        # modelo leve para 512MB
         faceapp = FaceAnalysis(
             name="buffalo_s",
             providers=["CPUExecutionProvider"],
@@ -48,7 +48,7 @@ def b64_to_img(b64: str) -> np.ndarray:
     except UnidentifiedImageError:
         raise HTTPException(status_code=422, detail="bytes decodificados não são imagem válida")
 
-    # ✅ resize para reduzir RAM/CPU (muito importante)
+    # resize para reduzir RAM/CPU
     max_side = 640
     if max(img.size) > max_side:
         img.thumbnail((max_side, max_side))
@@ -64,6 +64,13 @@ class CompareReq(BaseModel):
 @app.get("/")
 def root():
     return {"ok": True}
+
+
+@app.get("/warmup")
+def warmup():
+    # carrega o modelo para evitar timeout no primeiro /compare
+    get_faceapp()
+    return {"ok": True, "model_loaded": True}
 
 
 @app.post("/compare")
@@ -84,7 +91,6 @@ def compare(req: CompareReq):
     if not faces2:
         return {"ok": False, "error": "NO_FACE_2"}
 
-    # ✅ pega o rosto com maior score
     f1 = max(faces1, key=lambda x: float(getattr(x, "det_score", 0.0)))
     f2 = max(faces2, key=lambda x: float(getattr(x, "det_score", 0.0)))
 
