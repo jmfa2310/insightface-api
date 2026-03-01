@@ -9,4 +9,3 @@ pillow
 opencv-python-headless
 onnxruntime
 insightface==0.7.3
-stringzilla==3.10.3
