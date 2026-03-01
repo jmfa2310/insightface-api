@@ -1,7 +1,12 @@
+pip>=25.0
+setuptools>=70.0
+wheel>=0.43.0
+
 fastapi
 uvicorn[standard]
-numpy==1.24.4
+numpy
 pillow
+
 insightface==0.7.3
-onnxruntime==1.16.3
-opencv-python-headless==4.8.1.78
+onnxruntime
+opencv-python-headless
