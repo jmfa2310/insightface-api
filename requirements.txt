@@ -3,4 +3,5 @@ uvicorn[standard]
 numpy==1.26.4
 pillow
 insightface==0.7.3
-onnxruntime
+onnxruntime==1.16.3
+opencv-python-headless==4.8.1.78
