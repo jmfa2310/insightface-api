@@ -6,8 +6,7 @@ fastapi
 uvicorn[standard]
 numpy
 pillow
-
-insightface==0.7.3
-onnxruntime
 opencv-python-headless
-stringzilla==3.10.0
+onnxruntime
+insightface==0.7.3
+stringzilla==3.10.3
