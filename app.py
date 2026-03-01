@@ -68,10 +68,7 @@ def root():
 
 @app.get("/warmup")
 def warmup():
-    # carrega o modelo para evitar timeout no primeiro /compare
-    get_faceapp()
-    return {"ok": True, "model_loaded": True}
-
+    return {"ok": True}
 
 @app.post("/compare")
 def compare(req: CompareReq):
@@ -101,3 +98,4 @@ def compare(req: CompareReq):
     match = dist < 0.6
 
     return {"ok": True, "match": match, "distance": dist}
+
