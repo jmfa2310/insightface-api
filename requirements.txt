@@ -1,6 +1,6 @@
 fastapi
 uvicorn[standard]
-numpy==1.26.4
+numpy==1.24.4
 pillow
 insightface==0.7.3
 onnxruntime==1.16.3
